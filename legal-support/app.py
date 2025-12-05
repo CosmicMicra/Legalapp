@@ -31,6 +31,7 @@ GCS_PREFIX = "wihi"
 USERS_FILE = "users.json"
 #DEFAULT_USERS = {"admin": "20legal25", "michele": "20legal25", "lauren": "20legal25"}
 
+
 def load_users():
     try:
         download_cs_file(BUCKET_NAME, f"{GCS_PREFIX}/users.json", USERS_FILE)
@@ -39,10 +40,18 @@ def load_users():
     if os.path.exists(USERS_FILE):
         with open(USERS_FILE) as f:
             return json.load(f)
-    # users = {u: generate_password_hash(p) for u, p in DEFAULT_USERS.items()}
-    # with open(USERS_FILE, "w") as f:
-    #     json.dump(users, f)
-    # return users
+    return {}  # Return empty dict instead of None
+
+
+
+
+
+
+
+
+
+
+
 
 def save_users(users):
     with open(USERS_FILE, "w") as f:
