@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import API_URL from '../api'
 import './FileSelection.css'
 
 function FileSelection({ onSelectFile, onNewFile, onBack }) {
@@ -13,7 +14,7 @@ function FileSelection({ onSelectFile, onNewFile, onBack }) {
 
   const fetchFiles = async () => {
     try {
-      const res = await axios.get('/api/list_answers')
+      const res = await axios.get(`${API_URL}/api/list_answers`)
       setFiles(res.data.files || [])
     } catch (err) {
       console.error('Error fetching file list', err)
@@ -28,7 +29,7 @@ function FileSelection({ onSelectFile, onNewFile, onBack }) {
       return
     }
     try {
-      const loadRes = await axios.get('/api/load_answers', { params: { filename: selectedFile } })
+      const loadRes = await axios.get(`${API_URL}/api/load_answers`, { params: { filename: selectedFile } })
       onSelectFile(selectedFile, loadRes.data.answers || {}, loadRes.data.clientInfo)
     } catch (err) {
       console.error('Error loading', err)
@@ -43,7 +44,7 @@ function FileSelection({ onSelectFile, onNewFile, onBack }) {
     }
     if (!window.confirm('Delete selected file?')) return
     try {
-      await axios.post('/api/delete_answers', { filename: selectedFile })
+      await axios.post(`${API_URL}/api/delete_answers`, { filename: selectedFile })
       setSelectedFile('')
       fetchFiles()
     } catch (err) {
@@ -125,4 +126,3 @@ function FileSelection({ onSelectFile, onNewFile, onBack }) {
 }
 
 export default FileSelection
-

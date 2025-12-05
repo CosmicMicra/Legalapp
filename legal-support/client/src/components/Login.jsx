@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import API_URL from '../api'
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('')
@@ -10,7 +11,7 @@ function Login({ onLogin }) {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('/api/login', { username, password })
+      await axios.post(`${API_URL}/api/login`, { username, password })
       setError(null)
       if (onLogin) onLogin(true)
     } catch (err) {
@@ -21,7 +22,7 @@ function Login({ onLogin }) {
   const handleSignup = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('/api/signup', { username, password })
+      await axios.post(`${API_URL}/api/signup`, { username, password })
       setError(null)
       if (onLogin) onLogin(true)
     } catch (err) {

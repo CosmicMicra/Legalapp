@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
+import API_URL from '../api'
 
 function Chat({ debug }) {
   const [messages, setMessages] = useState([])
@@ -37,7 +38,7 @@ function Chat({ debug }) {
     try {
       setLoading(true)
       startTimer()
-      const res = await axios.post('/api/chat', { messages: updated })
+      const res = await axios.post(`${API_URL}/api/chat`, { messages: updated })
       const reply = res.data.reply
       const htmlReply = markdownToHtml(reply)
       setMessages([...updated, { role: 'assistant', content: htmlReply }])
@@ -61,7 +62,7 @@ function Chat({ debug }) {
     try {
       setLoading(true)
       startTimer()
-      const res = await axios.post('/api/chat', { messages: [] })
+      const res = await axios.post(`${API_URL}/api/chat`, { messages: [] })
       const reply = res.data.reply
       const htmlReply = markdownToHtml(reply)
       setMessages([{ role: 'assistant', content: htmlReply }])

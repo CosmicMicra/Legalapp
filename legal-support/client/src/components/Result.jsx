@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Chat from './Chat'
 import axios from 'axios'
+import API_URL from '../api'
 
 function Result({ html, onBack }) {
   const [debug, setDebug] = useState(false)
 
   useEffect(() => {
-    axios.get('/api/config')
+    axios.get(`${API_URL}/api/config`)
       .then(res => setDebug(res.data.debug))
       .catch(() => setDebug(false))
   }, [])

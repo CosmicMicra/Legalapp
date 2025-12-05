@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import API_URL from '../api'
 
 function EditProfile({ onBack }) {
   const [text, setText] = useState('')
 
   useEffect(() => {
-    axios.get('/api/profile')
+    axios.get(`${API_URL}/api/profile`)
       .then(res => setText(res.data.profile || ''))
       .catch(() => setText(''))
   }, [])
 
   const handleSave = async () => {
     try {
-      await axios.post('/api/profile', { profile: text })
+      await axios.post(`${API_URL}/api/profile`, { profile: text })
       alert('Saved')
       if (onBack) onBack()
     } catch (err) {

@@ -1,3 +1,4 @@
+import API_URL from '../api'
 import React, { useEffect, useState, useMemo } from 'react'
 import axios from 'axios'
 import QuestionField from './QuestionField'
@@ -14,7 +15,7 @@ function Questionnaire({ onSubmit, answers, setAnswers, clientInfo, setClientInf
   const questionsPerPage = 12
 
   useEffect(() => {
-    axios.get('/api/questions')
+    axios.get(`${API_URL}/api/questions`)
       .then(res => {
         setData(res.data)
         // Build question tree with sections and nested questions
@@ -126,7 +127,7 @@ function Questionnaire({ onSubmit, answers, setAnswers, clientInfo, setClientInf
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/compile_summary', { answers })
+      const res = await axios.post(`${API_URL}/api/compile_summary`, { answers })
       if (onSubmit) onSubmit(res.data.html)
     } catch (err) {
       console.error('Error submitting form:', err)

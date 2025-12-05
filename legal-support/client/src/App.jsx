@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Result from './components/Result'
 import EditProfile from './components/EditProfile'
 import axios from 'axios'
+import API_URL from './api'
 import './App.css'
 
 function App() {
@@ -14,11 +15,11 @@ function App() {
   const [answers, setAnswers] = useState({})
   const [clientInfo, setClientInfo] = useState(null)
   const [fileName, setFileName] = useState('')
-  const [page, setPage] = useState('file-selection') // file-selection -> client-info -> questionnaire
+  const [page, setPage] = useState('file-selection')
   const [currentNav, setCurrentNav] = useState('CASES')
 
   useEffect(() => {
-    axios.get('/api/check_login')
+    axios.get(`${API_URL}/api/check_login`)
       .then(res => setLoggedIn(res.data.logged_in))
       .catch(() => setLoggedIn(false))
   }, [])
@@ -53,7 +54,7 @@ function App() {
       setFileName(name)
     }
     try {
-      await axios.post('/api/save_answers', {
+      await axios.post(`${API_URL}/api/save_answers`, {
         filename: fileName,
         answers,
         clientInfo: clientInfo
@@ -104,7 +105,7 @@ function App() {
             <button 
               className="nav-link logout-btn"
               onClick={() => {
-                axios.post('/api/logout').finally(() => {
+                axios.post(`${API_URL}/api/logout`).finally(() => {
                   setLoggedIn(false)
                   setResultHtml(null)
                   setAnswers({})
