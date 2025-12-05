@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, send_from_directory, request, session
+from flask_cors import CORS
 import pandas as pd
 import os
 import json
@@ -6,22 +7,24 @@ import google_storage_utility
 from google_storage_utility import download_cs_file, upload_cs_file, list_cs_files, delete_cs_file
 from werkzeug.security import generate_password_hash, check_password_hash
 import openai
-from config import Config
 
 # store last compiled summary for use in chat
 LAST_SUMMARY = None
 
-
 app = Flask(__name__)
-app.config.from_pyfile('config.cfg')
+CORS(app, supports_credentials=True)  # Enable CORS
 app.secret_key = os.environ.get("SECRET_KEY", "randomstring")
-
-OPENAI_API_KEY = app.config['OPENAI_API_KEY']
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
-
 # Google Cloud Storage configuration
+BUCKET_NAME = "michele_test_bucket_unique"
+GCS_PREFIX = "wihi"
+USERS_FILE = "users.json"
+BUCKET_NAME = "michele_test_bucket_unique"
+GCS_PREFIX = "wihi"
+USERS_FILE = "users.json"
 BUCKET_NAME = "michele_test_bucket_unique"
 GCS_PREFIX = "wihi"
 
