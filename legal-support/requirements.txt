@@ -4,3 +4,4 @@ openpyxl
 google-cloud-storage
 openai
 config
+flask-cors
