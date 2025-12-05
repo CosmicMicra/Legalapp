@@ -1,0 +1,201 @@
+.file-selection-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.back-button {
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.back-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.file-selection-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.file-selection-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.file-selection-subtitle {
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.header-divider {
+  width: 60px;
+  height: 2px;
+  background-color: #000000;
+  margin: 0 auto 3rem;
+}
+
+.file-selection-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.option-section {
+  text-align: center;
+}
+
+.option-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.option-description {
+  font-size: 0.9375rem;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
+
+.option-button {
+  padding: 0.875rem 2.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.option-button.primary {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.option-button.primary:hover {
+  background-color: #333333;
+}
+
+.option-button.secondary {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.option-button.secondary:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.option-button.secondary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.option-button.danger {
+  background-color: #ffffff;
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.option-button.danger:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+.option-button.danger:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.option-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.option-divider::before,
+.option-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.option-divider span {
+  padding: 0 1rem;
+  color: #999999;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.file-select {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.875rem 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: #000000;
+  background-color: #ffffff;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.file-select:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.file-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loading-text,
+.no-files-text {
+  color: #666666;
+  font-size: 0.9375rem;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .file-selection-container {
+    padding: 1rem;
+  }
+
+  .file-selection-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .file-selection-title {
+    font-size: 2rem;
+  }
+}
+

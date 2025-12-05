@@ -1,0 +1,15 @@
+# Ignore Python virtual environment
+venv/
+__pycache__/
+
+# Ignore JS dev dependencies
+client/node_modules/
+
+# Ignore build artifacts that aren't needed 
+client/dist/assets/*.map
+
+# Ignore common junk
+.DS_Store
+*.log
+*.swp
+*.pyc

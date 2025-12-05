@@ -1,0 +1,6 @@
+Flask
+pandas
+openpyxl
+google-cloud-storage
+openai
+config

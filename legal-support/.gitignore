@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Node.js
+client/node_modules/
+client/dist/assets/*.map
+
+# General
+.env
+.DS_Store
+*.log
+user_data/Dockerfile
+config.cfg

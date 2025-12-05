@@ -1,0 +1,63 @@
+# ============================
+# Python backend
+# ============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.env
+
+# ============================
+# Node / React frontend
+# ============================
+node_modules/
+client/node_modules/
+client/dist/
+client/dist/assets/*.map
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ============================
+# System / OS files
+# ============================
+.DS_Store
+*.log
+logs/
+user_data/
+
+# ============================
+# Sensitive files
+# ============================
+# Keep package.json & package-lock.json
+# Ignore all other .json files except those needed
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!jsconfig.json
+
+# App-specific sensitive dirs
+legal-support/keys/
+legal-support/config.cfg
+
+# ============================
+# IDE / Editor files
+# ============================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ============================
+# Build outputs
+# ============================
+dist/
+build/
+*.egg-info/
+legal-support/Dockerfile
